@@ -4,7 +4,7 @@ import { query } from '@/database/config/connection';
 import nodemailer from 'nodemailer';
 
 // Konfigurasi email transporter
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || 'smtp.gmail.com',
   port: process.env.SMTP_PORT || 587,
   secure: false,
@@ -58,7 +58,7 @@ export async function POST(request) {
     // Simpan reset token ke database
     await query(
       `UPDATE users 
-       SET reset_token = $1, reset_token_expiry = $2, updated_at = NOW() 
+       SET reset_password_token = $1, reset_password_expires = $2, updated_at = NOW() 
        WHERE id = $3`,
       [resetToken, resetTokenExpiry, user.id]
     );
@@ -127,7 +127,7 @@ export async function POST(request) {
       console.error('Email sending failed:', emailError);
       // Hapus token jika email gagal dikirim
       await query(
-        'UPDATE users SET reset_token = NULL, reset_token_expiry = NULL WHERE id = $1',
+        'UPDATE users SET reset_password_token = NULL, reset_password_expires = NULL WHERE id = $1',
         [user.id]
       );
       

@@ -57,11 +57,38 @@ export async function POST(request) {
       createdAt: user.created_at
     };
 
-    // Simple response without token/cookie
+
+    // Generate JWT (simple, tanpa library, untuk demo; gunakan library di produksi)
+    const header = {
+      alg: 'HS256',
+      typ: 'JWT'
+    };
+    const payload = {
+      id: user.id,
+      email: user.email,
+      role: user.role,
+      userType: user.role === 'doctor' ? 'doctor' : 'patient',
+      iat: Math.floor(Date.now() / 1000),
+      exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24 // 1 hari
+    };
+    function base64url(obj) {
+      return Buffer.from(JSON.stringify(obj)).toString('base64').replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
+    }
+    const unsignedToken = base64url(header) + '.' + base64url(payload);
+    // Demo: signature kosong (jangan untuk produksi!)
+    const token = unsignedToken + '.demo-signature';
+
+    // Set cookie session_token agar bisa dibaca middleware
     const response = NextResponse.json({
       success: true,
       message: 'Login successful',
       user: userData
+    });
+    response.cookies.set('session_token', token, {
+      httpOnly: true,
+      path: '/',
+      sameSite: 'lax',
+      maxAge: 60 * 60 * 24 // 1 hari
     });
 
     console.log('Login successful for user:', userData.email, 'Role:', userData.role);

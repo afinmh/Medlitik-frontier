@@ -50,12 +50,14 @@ export default function Home() {
         variants={slowFadeIn}
       >
         <motion.div className="flex items-center space-x-3" variants={itemSlowFadeIn}>
-          <Image
-            src="https://placeholder.pics/svg/40x40/3570ff/000000/Logo"
-            alt="Logo Medlitik"
-            width={40}
-            height={40}
-          />
+            <Image
+              src="/logo.svg"
+              alt="Logo Medlitik"
+              width={48}
+              height={48}
+              className="mr-1"
+              priority
+            />
           <span className="text-2xl font-bold text-[#1a2a3a]">Medlitik</span>
         </motion.div>
         <motion.nav
