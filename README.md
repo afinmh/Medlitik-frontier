@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Medlitik - Platform Kesehatan Digital
 
-## Getting Started
+Medlitik adalah platform kesehatan digital terpadu yang menghubungkan pasien dengan dokter spesialis terbaik. Platform ini menyediakan layanan konsultasi online, perjanjian dokter, dan berbagai informasi kesehatan untuk meningkatkan akses masyarakat terhadap layanan kesehatan berkualitas di Indonesia.
 
-First, run the development server:
+![Medlitik Logo](https://placeholder.pics/svg/300x100/3570ff/FFFFFF/Medlitik)
+
+## Fitur Utama
+
+- **Konsultasi Online**: Konsultasi dengan dokter spesialis secara virtual kapan saja dan di mana saja
+- **Direktori Dokter**: Temukan dokter spesialis terbaik sesuai kebutuhan Anda
+- **Manajemen Profil**: Kelola profil kesehatan dan riwayat medis Anda
+- **Artikel Kesehatan**: Akses informasi kesehatan terpercaya dan terkini
+- **Manajemen Admin**: Dashboard admin untuk pengelolaan layanan platform
+
+## Teknologi yang Digunakan
+
+- **Frontend**: Next.js, React, Framer Motion
+- **Styling**: Tailwind CSS
+- **Database**: PostgreSQL
+- **Authentication**: NextAuth.js
+- **Deployment**: Vercel
+
+## Struktur Aplikasi
+
+- **Landing Page**: Halaman utama, menu dokter, tentang, dan kontak
+- **User Dashboard**: Dasbor pengguna untuk mengelola konsultasi dan profil kesehatan
+- **Doctor Dashboard**: Dasbor dokter untuk mengelola jadwal dan konsultasi
+- **Admin Panel**: Panel admin untuk pengelolaan pengguna, dokter, dan konsultasi
+
+## Memulai Pengembangan
+
+### Prasyarat
+
+- Node.js (versi 16.x atau lebih baru)
+- npm atau yarn
+- PostgreSQL
+
+### Instalasi
+
+1. Clone repositori:
+
+```bash
+git clone https://github.com/afinmh/Medlitik-frontier.git
+cd Medlitik-frontier
+```
+
+2. Instal dependensi:
+
+```bash
+npm install
+# atau
+yarn install
+```
+
+3. Setup database:
+
+```bash
+npm run setup-db
+# atau
+yarn setup-db
+```
+
+4. Jalankan server pengembangan:
 
 ```bash
 npm run dev
-# or
+# atau
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka [http://localhost:3000](http://localhost:3000) di browser Anda untuk melihat hasilnya.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Struktur Database
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Database PostgreSQL digunakan dengan tabel-tabel berikut:
+- Users
+- Doctors
+- Specializations
+- Consultations
+- Messages
 
-## Learn More
+Detail lebih lanjut dapat dilihat di [DATABASE_SETUP_GUIDE.md](./DATABASE_SETUP_GUIDE.md).
 
-To learn more about Next.js, take a look at the following resources:
+## Kontributor
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Nama Kontributor 1] - Role
+- [Nama Kontributor 2] - Role
+- [Nama Kontributor 3] - Role
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+Medlitik dapat di-deploy ke berbagai platform hosting. Kami merekomendasikan menggunakan Vercel untuk kemudahan dan integrasi yang baik dengan Next.js.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build
+# atau
+yarn build
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Untuk informasi lebih detail tentang deployment, lihat [dokumentasi deployment Next.js](https://nextjs.org/docs/app/building-your-application/deploying).
+
+## Lisensi
+
+[MIT](LICENSE)
