@@ -32,7 +32,19 @@ export default function AdminDashboard() {
     revenueProjection: 150000000,
     
     customerSatisfaction: 4.7,
-    platformUptime: 99.8
+    platformUptime: 99.8,
+    
+    // AI Performance Stats
+    aiAssistantUsage: 2340,
+    aiAccuracyRate: 95.2,
+    aiResponseTime: 0.3,
+    aiSessionsToday: 185,
+    totalRecoveryPrograms: 1420,
+    activeRecoveryPrograms: 234,
+    averageProgramDuration: 28, // days
+    recoverySuccessRate: 94.5,
+    warningSignsDetected: 42,
+    warningSignsPrevented: 38
   });
 
   // Trend data for charts
@@ -55,6 +67,18 @@ export default function AdminDashboard() {
       { name: 'Dermatologist', count: 12 },
       { name: 'Pediatrician', count: 10 },
       { name: 'Psychiatrist', count: 8 }
+    ],
+    
+    // AI Trends
+    aiUsageTrend: [1850, 1920, 2010, 2150, 2280, 2340],
+    aiAccuracyTrend: [93.2, 93.8, 94.1, 94.7, 95.0, 95.2],
+    recoveryProgramTrend: [980, 1080, 1150, 1240, 1350, 1420],
+    aiResponseTimeTrend: [0.4, 0.35, 0.32, 0.31, 0.3, 0.3],
+    topAiFeatures: [
+      { name: 'Recovery Plans', usage: 45 },
+      { name: 'Warning Detection', usage: 28 },
+      { name: 'Lifestyle Recommendations', usage: 18 },
+      { name: 'Progress Monitoring', usage: 9 }
     ]
   });
 
@@ -178,6 +202,7 @@ export default function AdminDashboard() {
               <Link href="/admin/users" className="text-gray-600 hover:text-[#3570ff]">Users</Link>
               <Link href="/admin/doctors" className="text-gray-600 hover:text-[#3570ff]">Doctors</Link>
               <Link href="/admin/consultations" className="text-gray-600 hover:text-[#3570ff]">Consultations</Link>
+              <Link href="/admin/ai" className="text-gray-600 hover:text-[#3570ff]">AI Monitoring</Link>
               <Link href="/admin/reports" className="text-gray-600 hover:text-[#3570ff]">Reports</Link>
             </nav>
 
@@ -478,6 +503,230 @@ export default function AdminDashboard() {
           </motion.div>
         </motion.div>
 
+        {/* AI Performance & Recovery Programs Section */}
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8"
+          initial="initial"
+          animate="animate"
+          variants={staggerContainer}
+        >
+          {/* AI Performance Metrics */}
+          <motion.div 
+            className="lg:col-span-2 bg-white rounded-xl shadow-sm border border-gray-100"
+            variants={fadeInLeft}
+          >
+            <div className="p-6 border-b border-gray-100">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <h2 className="text-lg font-semibold text-gray-900">AI Recovery Assistant Performance</h2>
+                </div>
+                <Link href="/admin/ai" className="text-sm text-[#3570ff] hover:text-[#2856b6] font-medium">
+                  View Details
+                </Link>
+              </div>
+            </div>
+            <div className="p-6">
+              {/* AI Stats Grid */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-2xl">🤖</span>
+                    <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Active</span>
+                  </div>
+                  <p className="text-lg font-bold text-gray-900">{stats.aiAccuracyRate}%</p>
+                  <p className="text-xs text-gray-600">Accuracy Rate</p>
+                </div>
+                
+                <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-2xl">⚡</span>
+                    <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Fast</span>
+                  </div>
+                  <p className="text-lg font-bold text-gray-900">{stats.aiResponseTime}s</p>
+                  <p className="text-xs text-gray-600">Response Time</p>
+                </div>
+                
+                <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-2xl">📈</span>
+                    <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">High</span>
+                  </div>
+                  <p className="text-lg font-bold text-gray-900">{stats.recoverySuccessRate}%</p>
+                  <p className="text-xs text-gray-600">Recovery Success</p>
+                </div>
+                
+                <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-2xl">⚠️</span>
+                    <span className="text-xs bg-orange-100 text-orange-800 px-2 py-1 rounded-full">Alert</span>
+                  </div>
+                  <p className="text-lg font-bold text-gray-900">{stats.warningSignsDetected}</p>
+                  <p className="text-xs text-gray-600">Warnings Detected</p>
+                </div>
+              </div>
+              
+              {/* AI Feature Usage */}
+              <div className="mb-6">
+                <h3 className="text-sm font-medium text-gray-700 mb-3">AI Feature Usage Distribution</h3>
+                <div className="space-y-3">
+                  {trends.topAiFeatures.map((feature, index) => (
+                    <div key={index} className="flex items-center">
+                      <div className="flex-1">
+                        <div className="flex justify-between text-sm mb-1">
+                          <span className="text-gray-700">{feature.name}</span>
+                          <span className="text-gray-900 font-medium">{feature.usage}%</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2">
+                          <div 
+                            className={`h-2 rounded-full ${
+                              index === 0 ? 'bg-gradient-to-r from-purple-500 to-pink-500' :
+                              index === 1 ? 'bg-gradient-to-r from-blue-500 to-cyan-500' :
+                              index === 2 ? 'bg-gradient-to-r from-green-500 to-emerald-500' :
+                              'bg-gradient-to-r from-orange-500 to-red-500'
+                            }`}
+                            style={{ width: `${feature.usage}%` }}
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Recent AI Interactions */}
+              <div>
+                <h3 className="text-sm font-medium text-gray-700 mb-3">Recent AI Interactions</h3>
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between bg-gray-50 p-3 rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                        <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-gray-900">Recovery plan completed</p>
+                        <p className="text-xs text-gray-500">Hypertension recovery program</p>
+                      </div>
+                    </div>
+                    <span className="text-xs text-gray-500">2 min ago</span>
+                  </div>
+                  
+                  <div className="flex items-center justify-between bg-gray-50 p-3 rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                        <svg className="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-gray-900">Warning sign detected</p>
+                        <p className="text-xs text-gray-500">Elevated blood pressure alert sent</p>
+                      </div>
+                    </div>
+                    <span className="text-xs text-gray-500">5 min ago</span>
+                  </div>
+                  
+                  <div className="flex items-center justify-between bg-gray-50 p-3 rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                        <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-gray-900">Lifestyle recommendation sent</p>
+                        <p className="text-xs text-gray-500">Custom diet plan generated</p>
+                      </div>
+                    </div>
+                    <span className="text-xs text-gray-500">8 min ago</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Recovery Programs Overview */}
+          <motion.div 
+            className="bg-white rounded-xl shadow-sm border border-gray-100"
+            variants={fadeInUp}
+          >
+            <div className="p-6 border-b border-gray-100">
+              <h2 className="text-lg font-semibold text-gray-900">Recovery Programs</h2>
+            </div>
+            <div className="p-6">
+              {/* Program Stats */}
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                <div className="bg-blue-50 rounded-lg p-3">
+                  <p className="text-lg font-bold text-blue-800">{stats.totalRecoveryPrograms}</p>
+                  <p className="text-xs text-blue-700">Total Programs</p>
+                </div>
+                <div className="bg-green-50 rounded-lg p-3">
+                  <p className="text-lg font-bold text-green-800">{stats.activeRecoveryPrograms}</p>
+                  <p className="text-xs text-green-700">Active Now</p>
+                </div>
+              </div>
+              
+              {/* Program Duration */}
+              <div className="mb-6">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-sm font-medium text-gray-600">Avg. Program Duration</p>
+                  <p className="text-sm font-bold text-gray-900">{stats.averageProgramDuration} days</p>
+                </div>
+                <div className="w-full h-2 bg-gray-200 rounded-full">
+                  <div 
+                    className="h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" 
+                    style={{ width: `${(stats.averageProgramDuration/60)*100}%` }}
+                  ></div>
+                </div>
+              </div>
+              
+              {/* Warning Signs Stats */}
+              <div className="mb-6">
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-sm font-medium text-gray-600">Warning Signs (Today)</p>
+                  <div className="text-right">
+                    <p className="text-xs text-orange-600">{stats.warningSignsDetected} detected</p>
+                    <p className="text-xs text-green-600">{stats.warningSignsPrevented} prevented</p>
+                  </div>
+                </div>
+                
+                <div className="bg-orange-50 rounded-lg p-3 mb-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-orange-800">Detection Rate</span>
+                    <span className="text-sm font-bold text-orange-900">
+                      {Math.round((stats.warningSignsPrevented / stats.warningSignsDetected) * 100)}%
+                    </span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Recovery Trends */}
+              <div>
+                <p className="text-sm font-medium text-gray-600 mb-3">Recovery Success Trend</p>
+                <div className="h-16 relative">
+                  <div className="flex items-end justify-between h-full">
+                    {[92, 93, 93.5, 94, 94.2, 94.5].map((value, index) => (
+                      <div key={index} className="flex flex-col items-center w-6">
+                        <div 
+                          className="w-2 bg-gradient-to-t from-green-400 to-green-600 rounded-t"
+                          style={{ height: `${((value - 90) / 10) * 100}%` }}
+                        ></div>
+                        <span className="text-xs text-gray-500 mt-1">{trends.monthLabels[index]}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+
         {/* Data Insights & Actions Row */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
           {/* Recent Activities */}
@@ -653,6 +902,18 @@ export default function AdminDashboard() {
                       </svg>
                     </div>
                     <span className="text-sm font-medium text-gray-700">Verify Doctors ({stats.doctorApplicationsPending})</span>
+                  </Link>
+
+                  <Link 
+                    href="/admin/ai"
+                    className="flex items-center p-3 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors"
+                  >
+                    <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                      <svg className="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <span className="text-sm font-medium text-gray-700">AI Monitoring & Control</span>
                   </Link>
                 </div>
               </div>

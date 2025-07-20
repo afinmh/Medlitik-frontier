@@ -976,6 +976,7 @@ export default function UserDashboard() {
                   className="flex flex-col items-center justify-center p-5 bg-gradient-to-r from-[#00a8cc] to-[#0095b8] text-white rounded-xl hover:shadow-lg transition-all"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
+                  onClick={() => router.push('/user/appointment')}
                 >
                   <CalendarDaysIcon className="h-8 w-8 mb-2" />
                   <span className="text-sm font-medium">Appointment</span>
@@ -985,6 +986,7 @@ export default function UserDashboard() {
                   className="flex flex-col items-center justify-center p-5 bg-white border border-[#00a8cc] text-[#00a8cc] rounded-xl hover:bg-blue-50 hover:shadow-md transition-all"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
+                  onClick={() => router.push('/user/consultation')}
                 >
                   <ChatBubbleLeftRightIcon className="h-8 w-8 mb-2" />
                   <span className="text-sm font-medium">Konsultasi</span>
@@ -994,6 +996,7 @@ export default function UserDashboard() {
                   className="flex flex-col items-center justify-center p-5 bg-white border border-gray-200 text-gray-700 rounded-xl hover:border-gray-300 hover:bg-gray-50 hover:shadow-md transition-all"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
+                  onClick={() => router.push('/user/medical-records')}
                 >
                   <DocumentTextIcon className="h-8 w-8 mb-2" />
                   <span className="text-sm font-medium">Rekam Medis</span>
@@ -1003,14 +1006,29 @@ export default function UserDashboard() {
                   className="flex flex-col items-center justify-center p-5 bg-white border border-gray-200 text-gray-700 rounded-xl hover:border-gray-300 hover:bg-gray-50 hover:shadow-md transition-all"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
+                  onClick={() => router.push('/user/health-tracker')}
                 >
                   <HeartIcon className="h-8 w-8 mb-2" />
                   <span className="text-sm font-medium">Health Tracker</span>
                 </motion.button>
+                
+                <motion.button 
+                  className="flex flex-col items-center justify-center p-5 col-span-2 bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-xl hover:shadow-lg transition-all"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => router.push('/user/ai-health')}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                    <path d="M12 17h.01"/>
+                  </svg>
+                  <span className="text-sm font-medium">AI Health Assistant</span>
+                </motion.button>
               </div>
             </div>
 
-            {/* Recommended Doctors */}
+            {/* Recommended Doctors
             <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
               <div className="p-6 border-b border-gray-200">
                 <div className="flex items-center justify-between">
@@ -1115,7 +1133,7 @@ export default function UserDashboard() {
                   ))}
                 </div>
               </div>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </main>

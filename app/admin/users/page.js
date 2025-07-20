@@ -410,7 +410,7 @@ export default function UsersManagement() {
                   id="search"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3570ff] focus:border-transparent outline-none"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3570ff] focus:border-transparent outline-none text-sm text-gray-500"
                   placeholder="Search by name or email..."
                 />
                 <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
@@ -430,7 +430,7 @@ export default function UsersManagement() {
                 id="filterType"
                 value={filterType}
                 onChange={(e) => setFilterType(e.target.value)}
-                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3570ff] focus:border-transparent outline-none"
+                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3570ff] focus:border-transparent outline-none text-sm text-gray-500"
               >
                 <option value="all">All Types</option>
                 <option value="patient">Patients</option>
@@ -447,7 +447,7 @@ export default function UsersManagement() {
                 id="filterStatus"
                 value={filterStatus}
                 onChange={(e) => setFilterStatus(e.target.value)}
-                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3570ff] focus:border-transparent outline-none"
+                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3570ff] focus:border-transparent outline-none text-sm text-gray-500"
               >
                 <option value="all">All Status</option>
                 <option value="active">Active</option>

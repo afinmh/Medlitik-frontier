@@ -25,22 +25,57 @@ export default function AdminReports() {
       growthRate: 12.5,
       avgConsultationTime: 32,
       customerSatisfaction: 4.7,
-      platformUptime: 99.9
+      platformUptime: 99.9,
+      // New comprehensive metrics
+      totalAppointments: 3850,
+      totalPrescriptions: 2980,
+      totalReports: 127,
+      cancelationRate: 5.2,
+      responseTime: 2.3, // minutes
+      resolutionRate: 94.8,
+      monthlyActiveUsers: 8750,
+      newUserGrowth: 18.7,
+      doctorUtilization: 78.5,
+      avgSessionDuration: 28.5,
+      conversionRate: 67.3,
+      churnRate: 3.2
     },
     financial: {
       monthlyRevenue: [
-        { month: "Jan", revenue: 98000000 },
-        { month: "Feb", revenue: 105000000 },
-        { month: "Mar", revenue: 112000000 },
-        { month: "Apr", revenue: 125000000 }
+        { month: "Jan", revenue: 98000000, profit: 18600000, expenses: 79400000, growth: 8.5 },
+        { month: "Feb", revenue: 105000000, profit: 21000000, expenses: 84000000, growth: 7.1 },
+        { month: "Mar", revenue: 112000000, profit: 22400000, expenses: 89600000, growth: 6.7 },
+        { month: "Apr", revenue: 125000000, profit: 25000000, expenses: 100000000, growth: 11.6 }
       ],
       revenueBySpecialty: [
-        { specialty: "General Practice", revenue: 45000000, percentage: 36 },
-        { specialty: "Cardiology", revenue: 28000000, percentage: 22.4 },
-        { specialty: "Dermatology", revenue: 23000000, percentage: 18.4 },
-        { specialty: "Pediatrics", revenue: 18000000, percentage: 14.4 },
-        { specialty: "Others", revenue: 11000000, percentage: 8.8 }
-      ]
+        { specialty: "General Practice", revenue: 45000000, percentage: 36, consultations: 1230, avgPrice: 36585 },
+        { specialty: "Cardiology", revenue: 28000000, percentage: 22.4, consultations: 467, avgPrice: 59957 },
+        { specialty: "Dermatology", revenue: 23000000, percentage: 18.4, consultations: 623, avgPrice: 36918 },
+        { specialty: "Pediatrics", revenue: 18000000, percentage: 14.4, consultations: 511, avgPrice: 35225 },
+        { specialty: "Others", revenue: 11000000, percentage: 8.8, consultations: 589, avgPrice: 18675 }
+      ],
+      paymentMethods: [
+        { method: "Credit Card", amount: 48750000, percentage: 39, transactions: 1342 },
+        { method: "Bank Transfer", amount: 37500000, percentage: 30, transactions: 987 },
+        { method: "E-Wallet", amount: 25000000, percentage: 20, transactions: 1124 },
+        { method: "Cash", amount: 13750000, percentage: 11, transactions: 456 }
+      ],
+      costBreakdown: [
+        { category: "Doctor Fees", amount: 62500000, percentage: 50, description: "Payment to medical professionals" },
+        { category: "Platform Operations", amount: 18750000, percentage: 15, description: "Server, hosting, maintenance" },
+        { category: "Marketing", amount: 15000000, percentage: 12, description: "Digital marketing and promotions" },
+        { category: "Customer Support", amount: 12500000, percentage: 10, description: "Support staff and systems" },
+        { category: "Technology", amount: 10000000, percentage: 8, description: "Software licenses and tools" },
+        { category: "Administration", amount: 6250000, percentage: 5, description: "Office and admin expenses" }
+      ],
+      financialTrends: {
+        revenueGrowth: 12.5,
+        profitMargin: 20.0,
+        operatingExpenses: 100000000,
+        netProfit: 25000000,
+        cashFlow: 18750000,
+        roi: 285.7
+      }
     },
     usage: {
       dailyActiveUsers: 450,
@@ -48,7 +83,42 @@ export default function AdminReports() {
       monthlyActiveUsers: 8500,
       avgSessionDuration: "24:30",
       peakHours: "14:00 - 16:00",
-      mostUsedFeature: "Video Consultation"
+      mostUsedFeature: "Video Consultation",
+      // Enhanced analytics
+      userEngagement: {
+        bounceRate: 12.3,
+        pageViews: 125000,
+        uniqueVisitors: 8750,
+        returnVisitors: 3425,
+        newVisitors: 5325,
+        avgPagesPerSession: 4.2,
+        conversionFunnel: {
+          visitors: 12500,
+          signups: 1250,
+          firstConsultation: 950,
+          repeatConsultation: 720,
+          subscriptions: 580
+        }
+      },
+      deviceAnalytics: [
+        { device: "Mobile", users: 5100, percentage: 60, sessions: 18750 },
+        { device: "Desktop", users: 2550, percentage: 30, sessions: 9375 },
+        { device: "Tablet", users: 850, percentage: 10, sessions: 3125 }
+      ],
+      geographicDistribution: [
+        { region: "Jakarta", users: 3400, percentage: 40, revenue: 50000000 },
+        { region: "Surabaya", users: 1700, percentage: 20, revenue: 25000000 },
+        { region: "Bandung", users: 1275, percentage: 15, revenue: 18750000 },
+        { region: "Medan", users: 850, percentage: 10, revenue: 12500000 },
+        { region: "Others", users: 1275, percentage: 15, revenue: 18750000 }
+      ],
+      timeAnalytics: {
+        peakDays: ["Tuesday", "Wednesday", "Thursday"],
+        avgResponseTime: 2.3,
+        systemUptime: 99.95,
+        errorRate: 0.05,
+        loadTime: 1.8
+      }
     },
     patients: [
       {
@@ -396,13 +466,16 @@ export default function AdminReports() {
                 <select 
                   value={selectedReport}
                   onChange={(e) => setSelectedReport(e.target.value)}
-                  className="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#3570ff] focus:border-transparent"
+                  className="px-4 py-2 border border-gray-300 rounded-lg text-sm text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#3570ff] focus:border-transparent"
                 >
-                  <option value="overview">Overview</option>
-                  <option value="financial">Financial</option>
-                  <option value="usage">Usage Analytics</option>
-                  <option value="patients">Patient Reports</option>
-                  <option value="doctors">Doctor Reports</option>
+                  <option value="overview">📊 Business Overview</option>
+                  <option value="financial">💰 Financial Analytics</option>
+                  <option value="usage">📈 Usage Analytics</option>
+                  <option value="patients">👥 Patient Reports</option>
+                  <option value="doctors">👨‍⚕️ Doctor Performance</option>
+                  <option value="operational">⚙️ Operational Metrics</option>
+                  <option value="satisfaction">⭐ Quality & Satisfaction</option>
+                  <option value="trends">📉 Trends & Forecasting</option>
                 </select>
               </div>
 
@@ -412,7 +485,7 @@ export default function AdminReports() {
                 <select 
                   value={selectedPeriod}
                   onChange={(e) => setSelectedPeriod(e.target.value)}
-                  className="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#3570ff] focus:border-transparent"
+                  className="px-4 py-2 border border-gray-300 rounded-lg text-sm text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#3570ff] focus:border-transparent"
                 >
                   <option value="daily">Daily</option>
                   <option value="weekly">Weekly</option>
@@ -454,7 +527,7 @@ export default function AdminReports() {
             animate="animate"
             variants={fadeInUp}
           >
-            {/* Key Metrics */}
+            {/* Extended Key Metrics Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
                 <div className="flex items-center justify-between">
@@ -523,6 +596,69 @@ export default function AdminReports() {
               </div>
             </div>
 
+            {/* Additional Overview Metrics */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-gray-600">Monthly Active Users</p>
+                    <p className="text-2xl font-bold text-gray-900">{formatNumber(reportData.overview.monthlyActiveUsers)}</p>
+                    <p className="text-sm text-green-600">+{reportData.overview.newUserGrowth}% growth</p>
+                  </div>
+                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                    <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-gray-600">Resolution Rate</p>
+                    <p className="text-2xl font-bold text-gray-900">{reportData.overview.resolutionRate}%</p>
+                    <p className="text-sm text-gray-500">Issues resolved</p>
+                  </div>
+                  <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
+                    <svg className="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-gray-600">Doctor Utilization</p>
+                    <p className="text-2xl font-bold text-gray-900">{reportData.overview.doctorUtilization}%</p>
+                    <p className="text-sm text-gray-500">Average capacity</p>
+                  </div>
+                  <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center">
+                    <svg className="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-gray-600">Response Time</p>
+                    <p className="text-2xl font-bold text-gray-900">{reportData.overview.responseTime} min</p>
+                    <p className="text-sm text-green-600">Average response</p>
+                  </div>
+                  <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                    <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Performance Summary */}
             <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Performance Summary</h3>
@@ -569,15 +705,94 @@ export default function AdminReports() {
             animate="animate"
             variants={fadeInUp}
           >
+            {/* Financial Overview Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-gray-600">Total Revenue</p>
+                    <p className="text-2xl font-bold text-gray-900">{formatCurrency(reportData.overview.totalRevenue)}</p>
+                    <p className="text-sm text-green-600">+{reportData.financial.financialTrends.revenueGrowth}% growth</p>
+                  </div>
+                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                    <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-gray-600">Net Profit</p>
+                    <p className="text-2xl font-bold text-gray-900">{formatCurrency(reportData.financial.financialTrends.netProfit)}</p>
+                    <p className="text-sm text-blue-600">{reportData.financial.financialTrends.profitMargin}% margin</p>
+                  </div>
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-gray-600">Operating Expenses</p>
+                    <p className="text-2xl font-bold text-gray-900">{formatCurrency(reportData.financial.financialTrends.operatingExpenses)}</p>
+                    <p className="text-sm text-orange-600">Monthly total</p>
+                  </div>
+                  <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                    <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-gray-600">ROI</p>
+                    <p className="text-2xl font-bold text-gray-900">{reportData.financial.financialTrends.roi}%</p>
+                    <p className="text-sm text-purple-600">Return on Investment</p>
+                  </div>
+                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                    <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Revenue Trend */}
               <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Monthly Revenue Trend</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Monthly Revenue Analysis</h3>
                 <div className="space-y-4">
                   {reportData.financial.monthlyRevenue.map((item, index) => (
-                    <div key={index} className="flex items-center justify-between">
-                      <span className="text-sm text-gray-600">{item.month} 2025</span>
-                      <span className="text-sm font-medium text-gray-900">{formatCurrency(item.revenue)}</span>
+                    <div key={index} className="p-4 bg-gray-50 rounded-lg">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-sm font-medium text-gray-700">{item.month} 2025</span>
+                        <span className="text-lg font-bold text-gray-900">{formatCurrency(item.revenue)}</span>
+                      </div>
+                      <div className="grid grid-cols-3 gap-4 text-sm">
+                        <div>
+                          <span className="text-gray-500">Profit: </span>
+                          <span className="font-medium text-green-600">{formatCurrency(item.profit)}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-500">Expenses: </span>
+                          <span className="font-medium text-red-600">{formatCurrency(item.expenses)}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-500">Growth: </span>
+                          <span className="font-medium text-blue-600">{item.growth}%</span>
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -585,23 +800,103 @@ export default function AdminReports() {
 
               {/* Revenue by Specialty */}
               <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Revenue by Specialty</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Revenue by Medical Specialty</h3>
                 <div className="space-y-4">
                   {reportData.financial.revenueBySpecialty.map((item, index) => (
                     <div key={index}>
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-sm text-gray-600">{item.specialty}</span>
-                        <span className="text-sm font-medium text-gray-900">{item.percentage}%</span>
+                        <span className="text-sm font-medium text-gray-900">{formatCurrency(item.revenue)}</span>
                       </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
-                        <div 
-                          className="bg-[#3570ff] h-2 rounded-full" 
-                          style={{ width: `${item.percentage}%` }}
-                        ></div>
+                      <div className="flex items-center mb-2">
+                        <div className="w-full bg-gray-200 rounded-full h-2 mr-3">
+                          <div 
+                            className={`h-2 rounded-full ${
+                              index === 0 ? 'bg-blue-600' :
+                              index === 1 ? 'bg-green-600' :
+                              index === 2 ? 'bg-yellow-600' :
+                              index === 3 ? 'bg-purple-600' : 'bg-gray-600'
+                            }`}
+                            style={{ width: `${item.percentage}%` }}
+                          ></div>
+                        </div>
+                        <span className="text-xs text-gray-500 w-8">{item.percentage}%</span>
                       </div>
-                      <div className="text-xs text-gray-500 mt-1">{formatCurrency(item.revenue)}</div>
+                      <div className="flex justify-between text-xs text-gray-500">
+                        <span>{item.consultations} consultations</span>
+                        <span>Avg: {formatCurrency(item.avgPrice)}</span>
+                      </div>
                     </div>
                   ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Payment Methods & Cost Breakdown */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Payment Methods Distribution</h3>
+                <div className="space-y-4">
+                  {reportData.financial.paymentMethods.map((method, index) => (
+                    <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                      <div className="flex items-center">
+                        <div className={`w-3 h-3 rounded-full mr-3 ${
+                          index === 0 ? 'bg-blue-500' :
+                          index === 1 ? 'bg-green-500' :
+                          index === 2 ? 'bg-yellow-500' : 'bg-gray-500'
+                        }`}></div>
+                        <div>
+                          <span className="text-sm font-medium text-gray-900">{method.method}</span>
+                          <p className="text-xs text-gray-500">{method.transactions} transactions</p>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <span className="text-sm font-bold text-gray-900">{formatCurrency(method.amount)}</span>
+                        <p className="text-xs text-gray-500">{method.percentage}%</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Cost Breakdown Analysis</h3>
+                <div className="space-y-3">
+                  {reportData.financial.costBreakdown.map((cost, index) => (
+                    <div key={index} className="p-3 border-l-4 border-l-blue-500 bg-blue-50">
+                      <div className="flex justify-between items-start mb-1">
+                        <span className="text-sm font-medium text-gray-900">{cost.category}</span>
+                        <span className="text-sm font-bold text-blue-900">{formatCurrency(cost.amount)}</span>
+                      </div>
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-xs text-gray-600">{cost.description}</span>
+                        <span className="text-xs bg-blue-200 text-blue-800 px-2 py-1 rounded-full">{cost.percentage}%</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Financial Summary */}
+            <div className="bg-gradient-to-r from-green-500 to-blue-600 rounded-xl shadow-sm p-6 text-white">
+              <h3 className="text-xl font-semibold mb-4">Financial Performance Summary</h3>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div className="text-center">
+                  <p className="text-2xl font-bold">{formatCurrency(reportData.financial.financialTrends.cashFlow)}</p>
+                  <p className="text-sm text-green-100">Cash Flow</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-2xl font-bold">{reportData.financial.financialTrends.profitMargin}%</p>
+                  <p className="text-sm text-green-100">Profit Margin</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-2xl font-bold">{reportData.financial.financialTrends.revenueGrowth}%</p>
+                  <p className="text-sm text-green-100">Revenue Growth</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-2xl font-bold">{reportData.financial.financialTrends.roi}%</p>
+                  <p className="text-sm text-green-100">Return on Investment</p>
                 </div>
               </div>
             </div>
@@ -1166,6 +1461,427 @@ export default function AdminReports() {
                     ))}
                   </tbody>
                 </table>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Operational Metrics Report */}
+        {selectedReport === "operational" && (
+          <motion.div 
+            className="space-y-8"
+            initial="initial"
+            animate="animate"
+            variants={fadeInUp}
+          >
+            {/* Operational Overview */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-gray-600">Total Appointments</p>
+                    <p className="text-2xl font-bold text-gray-900">{formatNumber(reportData.overview.totalAppointments)}</p>
+                    <p className="text-sm text-blue-600">Including cancelled</p>
+                  </div>
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m0 0V9a2 2 0 00-2 2H8a2 2 0 00-2-2V7m0 0V5a2 2 0 012-2h4a2 2 0 012 2v2" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-gray-600">Cancellation Rate</p>
+                    <p className="text-2xl font-bold text-gray-900">{reportData.overview.cancelationRate}%</p>
+                    <p className="text-sm text-red-600">Needs improvement</p>
+                  </div>
+                  <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                    <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-gray-600">Total Prescriptions</p>
+                    <p className="text-2xl font-bold text-gray-900">{formatNumber(reportData.overview.totalPrescriptions)}</p>
+                    <p className="text-sm text-green-600">This month</p>
+                  </div>
+                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                    <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-gray-600">Patient Reports</p>
+                    <p className="text-2xl font-bold text-gray-900">{formatNumber(reportData.overview.totalReports)}</p>
+                    <p className="text-sm text-yellow-600">Under review</p>
+                  </div>
+                  <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                    <svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Performance Indicators */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Key Performance Indicators</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">Conversion Rate</span>
+                    <div className="flex items-center">
+                      <div className="w-32 bg-gray-200 rounded-full h-2 mr-3">
+                        <div className="bg-green-600 h-2 rounded-full" style={{ width: `${reportData.overview.conversionRate}%` }}></div>
+                      </div>
+                      <span className="text-sm font-medium text-gray-900">{reportData.overview.conversionRate}%</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">Churn Rate</span>
+                    <div className="flex items-center">
+                      <div className="w-32 bg-gray-200 rounded-full h-2 mr-3">
+                        <div className="bg-red-500 h-2 rounded-full" style={{ width: `${reportData.overview.churnRate * 10}%` }}></div>
+                      </div>
+                      <span className="text-sm font-medium text-gray-900">{reportData.overview.churnRate}%</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">Doctor Utilization</span>
+                    <div className="flex items-center">
+                      <div className="w-32 bg-gray-200 rounded-full h-2 mr-3">
+                        <div className="bg-blue-600 h-2 rounded-full" style={{ width: `${reportData.overview.doctorUtilization}%` }}></div>
+                      </div>
+                      <span className="text-sm font-medium text-gray-900">{reportData.overview.doctorUtilization}%</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">Resolution Rate</span>
+                    <div className="flex items-center">
+                      <div className="w-32 bg-gray-200 rounded-full h-2 mr-3">
+                        <div className="bg-purple-600 h-2 rounded-full" style={{ width: `${reportData.overview.resolutionRate}%` }}></div>
+                      </div>
+                      <span className="text-sm font-medium text-gray-900">{reportData.overview.resolutionRate}%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">System Performance</h3>
+                <div className="space-y-4">
+                  <div className="text-center p-4 bg-green-50 rounded-lg">
+                    <p className="text-2xl font-bold text-green-600">{reportData.usage.timeAnalytics.systemUptime}%</p>
+                    <p className="text-sm text-green-700">System Uptime</p>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="text-center p-4 bg-blue-50 rounded-lg">
+                      <p className="text-xl font-bold text-blue-600">{reportData.usage.timeAnalytics.avgResponseTime}min</p>
+                      <p className="text-xs text-blue-700">Avg Response Time</p>
+                    </div>
+                    <div className="text-center p-4 bg-orange-50 rounded-lg">
+                      <p className="text-xl font-bold text-orange-600">{reportData.usage.timeAnalytics.loadTime}s</p>
+                      <p className="text-xs text-orange-700">Page Load Time</p>
+                    </div>
+                  </div>
+                  
+                  <div className="text-center p-4 bg-red-50 rounded-lg">
+                    <p className="text-lg font-bold text-red-600">{reportData.usage.timeAnalytics.errorRate}%</p>
+                    <p className="text-sm text-red-700">Error Rate</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Quality & Satisfaction Report */}
+        {selectedReport === "satisfaction" && (
+          <motion.div 
+            className="space-y-8"
+            initial="initial"
+            animate="animate"
+            variants={fadeInUp}
+          >
+            {/* Satisfaction Overview */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 text-center">
+                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                </div>
+                <p className="text-3xl font-bold text-gray-900">{reportData.overview.customerSatisfaction}/5.0</p>
+                <p className="text-sm text-gray-600">Overall Satisfaction</p>
+                <div className="flex justify-center mt-2">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className={`w-5 h-5 ${i < Math.floor(reportData.overview.customerSatisfaction) ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m0 0V1a1 1 0 011-1h2a1 1 0 011 1v18a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1h2a1 1 0 011-1V4" />
+                  </svg>
+                </div>
+                <p className="text-3xl font-bold text-gray-900">{reportData.patientReports.length}</p>
+                <p className="text-sm text-gray-600">Total Reports</p>
+                <p className="text-xs text-green-600 mt-1">All feedback tracked</p>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <p className="text-3xl font-bold text-gray-900">{reportData.patientReports.filter(r => r.status === 'resolved').length}</p>
+                <p className="text-sm text-gray-600">Resolved Issues</p>
+                <p className="text-xs text-green-600 mt-1">
+                  {Math.round((reportData.patientReports.filter(r => r.status === 'resolved').length / reportData.patientReports.length) * 100)}% resolution rate
+                </p>
+              </div>
+            </div>
+
+            {/* Detailed Satisfaction Analysis */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Satisfaction by Category</h3>
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">Medical Quality</span>
+                    <div className="flex items-center">
+                      <div className="flex mr-2">
+                        {[...Array(5)].map((_, i) => (
+                          <svg key={i} className={`w-4 h-4 ${i < 4 ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                      <span className="text-sm font-medium">4.8/5.0</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">Communication</span>
+                    <div className="flex items-center">
+                      <div className="flex mr-2">
+                        {[...Array(5)].map((_, i) => (
+                          <svg key={i} className={`w-4 h-4 ${i < 4 ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                      <span className="text-sm font-medium">4.6/5.0</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">Platform Ease</span>
+                    <div className="flex items-center">
+                      <div className="flex mr-2">
+                        {[...Array(5)].map((_, i) => (
+                          <svg key={i} className={`w-4 h-4 ${i < 4 ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                      <span className="text-sm font-medium">4.7/5.0</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">Wait Times</span>
+                    <div className="flex items-center">
+                      <div className="flex mr-2">
+                        {[...Array(5)].map((_, i) => (
+                          <svg key={i} className={`w-4 h-4 ${i < 3 ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                      <span className="text-sm font-medium">3.9/5.0</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Report Status Distribution</h3>
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                    <div className="flex items-center">
+                      <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                      <span className="text-sm font-medium text-green-800">Resolved</span>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-lg font-bold text-green-800">
+                        {reportData.patientReports.filter(r => r.status === 'resolved').length}
+                      </span>
+                      <p className="text-xs text-green-700">
+                        {Math.round((reportData.patientReports.filter(r => r.status === 'resolved').length / reportData.patientReports.length) * 100)}%
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-between items-center p-3 bg-yellow-50 rounded-lg">
+                    <div className="flex items-center">
+                      <div className="w-3 h-3 bg-yellow-500 rounded-full mr-3"></div>
+                      <span className="text-sm font-medium text-yellow-800">Under Review</span>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-lg font-bold text-yellow-800">
+                        {reportData.patientReports.filter(r => r.status === 'under_review').length}
+                      </span>
+                      <p className="text-xs text-yellow-700">
+                        {Math.round((reportData.patientReports.filter(r => r.status === 'under_review').length / reportData.patientReports.length) * 100)}%
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-between items-center p-3 bg-red-50 rounded-lg">
+                    <div className="flex items-center">
+                      <div className="w-3 h-3 bg-red-500 rounded-full mr-3"></div>
+                      <span className="text-sm font-medium text-red-800">Investigating</span>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-lg font-bold text-red-800">
+                        {reportData.patientReports.filter(r => r.status === 'investigating').length}
+                      </span>
+                      <p className="text-xs text-red-700">
+                        {Math.round((reportData.patientReports.filter(r => r.status === 'investigating').length / reportData.patientReports.length) * 100)}%
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Trends & Forecasting Report */}
+        {selectedReport === "trends" && (
+          <motion.div 
+            className="space-y-8"
+            initial="initial"
+            animate="animate"
+            variants={fadeInUp}
+          >
+            {/* Forecasting Overview */}
+            <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl shadow-sm p-8 text-white">
+              <div className="text-center">
+                <h2 className="text-3xl font-bold mb-2">Business Forecasting</h2>
+                <p className="text-blue-100 mb-6">Predictive analytics and growth trends for Medlitik platform</p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="bg-white/10 rounded-lg p-4">
+                    <p className="text-2xl font-bold">+23%</p>
+                    <p className="text-sm text-blue-100">Projected Growth</p>
+                    <p className="text-xs text-blue-200">Next Quarter</p>
+                  </div>
+                  <div className="bg-white/10 rounded-lg p-4">
+                    <p className="text-2xl font-bold">{formatCurrency(145000000)}</p>
+                    <p className="text-sm text-blue-100">Revenue Forecast</p>
+                    <p className="text-xs text-blue-200">Next Month</p>
+                  </div>
+                  <div className="bg-white/10 rounded-lg p-4">
+                    <p className="text-2xl font-bold">4,200+</p>
+                    <p className="text-sm text-blue-100">Expected Consultations</p>
+                    <p className="text-xs text-blue-200">Next Month</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Growth Trends */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">User Growth Prediction</h3>
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">Current Month</span>
+                    <span className="text-lg font-bold text-gray-900">{formatNumber(reportData.overview.monthlyActiveUsers)}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">Next Month (Est.)</span>
+                    <span className="text-lg font-bold text-green-600">
+                      {formatNumber(Math.round(reportData.overview.monthlyActiveUsers * 1.187))}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">3 Months (Est.)</span>
+                    <span className="text-lg font-bold text-blue-600">
+                      {formatNumber(Math.round(reportData.overview.monthlyActiveUsers * 1.35))}
+                    </span>
+                  </div>
+                  
+                  <div className="mt-6 p-4 bg-green-50 rounded-lg">
+                    <p className="text-sm font-medium text-green-800">Growth Factors</p>
+                    <ul className="text-xs text-green-700 mt-2 space-y-1">
+                      <li>• Marketing campaign effectiveness</li>
+                      <li>• Word-of-mouth referrals</li>
+                      <li>• Platform improvements</li>
+                      <li>• Seasonal health awareness</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Revenue Projections</h3>
+                <div className="space-y-4">
+                  <div className="p-4 bg-gray-50 rounded-lg">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm font-medium text-gray-700">Conservative</span>
+                      <span className="text-lg font-bold text-gray-900">{formatCurrency(138000000)}</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="bg-gray-600 h-2 rounded-full" style={{ width: '85%' }}></div>
+                    </div>
+                  </div>
+                  
+                  <div className="p-4 bg-blue-50 rounded-lg">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm font-medium text-blue-700">Realistic</span>
+                      <span className="text-lg font-bold text-blue-900">{formatCurrency(145000000)}</span>
+                    </div>
+                    <div className="w-full bg-blue-200 rounded-full h-2">
+                      <div className="bg-blue-600 h-2 rounded-full" style={{ width: '92%' }}></div>
+                    </div>
+                  </div>
+                  
+                  <div className="p-4 bg-green-50 rounded-lg">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm font-medium text-green-700">Optimistic</span>
+                      <span className="text-lg font-bold text-green-900">{formatCurrency(158000000)}</span>
+                    </div>
+                    <div className="w-full bg-green-200 rounded-full h-2">
+                      <div className="bg-green-600 h-2 rounded-full" style={{ width: '100%' }}></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>

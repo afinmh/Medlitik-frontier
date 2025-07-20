@@ -30,11 +30,9 @@ export default function LoginPage() {
           const userData = JSON.parse(user);
           console.log('User already logged in:', userData);
           
-          const targetUrl = userData.role === 'admin' ? '/admin' : 
-                           userData.role === 'doctor' ? '/doctor' : '/user';
-          
-          console.log('Redirecting already logged in user to:', targetUrl);
-          router.push(targetUrl);
+          // Instead of auto-redirect, we'll show a message to the user
+          // They can choose to continue to dashboard or logout to login with different account
+          setSuccess(`Anda sudah login sebagai ${userData.email}. Ingin melanjutkan ke dashboard atau logout untuk login dengan akun berbeda?`);
         } catch (e) {
           console.log('Error parsing stored user data:', e);
           // Clear invalid data
@@ -52,6 +50,28 @@ export default function LoginPage() {
       ...prev,
       [name]: type === 'checkbox' ? checked : value
     }));
+  };
+
+  const handleContinueToDashboard = () => {
+    const user = localStorage.getItem('user');
+    if (user) {
+      try {
+        const userData = JSON.parse(user);
+        const targetUrl = userData.role === 'admin' ? '/admin' : 
+                         userData.role === 'doctor' ? '/doctor' : 
+                         userData.role === 'patient' ? '/user' : '/user';
+        router.push(targetUrl);
+      } catch (e) {
+        console.log('Error parsing user data:', e);
+        localStorage.removeItem('user');
+      }
+    }
+  };
+
+  const handleLogoutAndStay = () => {
+    localStorage.removeItem('user');
+    setSuccess('');
+    setError('');
   };
 
   const handleSubmit = async (e) => {
@@ -83,7 +103,8 @@ export default function LoginPage() {
         
         // Determine target URL
         const targetUrl = data.user.role === 'admin' ? '/admin' : 
-                         data.user.role === 'doctor' ? '/doctor' : '/user';
+                         data.user.role === 'doctor' ? '/doctor' : 
+                         data.user.role === 'patient' ? '/user' : '/user';
         
         console.log('Target URL:', targetUrl);
         
@@ -165,6 +186,22 @@ export default function LoginPage() {
             {success && (
               <div className="mt-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded-lg">
                 {success}
+                {success.includes('Anda sudah login sebagai') && (
+                  <div className="mt-3 flex gap-3 flex-col sm:flex-row">
+                    <button
+                      onClick={handleContinueToDashboard}
+                      className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    >
+                      Lanjutkan ke Dashboard
+                    </button>
+                    <button
+                      onClick={handleLogoutAndStay}
+                      className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                    >
+                      Logout & Login dengan Akun Lain
+                    </button>
+                  </div>
+                )}
               </div>
             )}
           </motion.div>

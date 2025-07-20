@@ -480,7 +480,7 @@ export default function AdminConsultations() {
                 <select 
                   value={filterStatus}
                   onChange={(e) => setFilterStatus(e.target.value)}
-                  className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#3570ff] focus:border-transparent"
+                  className="px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#3570ff] focus:border-transparent"
                 >
                   <option value="all">All Status</option>
                   <option value="ongoing">Ongoing</option>
@@ -492,7 +492,7 @@ export default function AdminConsultations() {
                 <select 
                   value={filterType}
                   onChange={(e) => setFilterType(e.target.value)}
-                  className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#3570ff] focus:border-transparent"
+                  className="px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#3570ff] focus:border-transparent"
                 >
                   <option value="all">All Types</option>
                   <option value="video">Video Call</option>
@@ -515,7 +515,7 @@ export default function AdminConsultations() {
                   placeholder="Search consultations..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3570ff] focus:border-transparent outline-none"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3570ff] focus:border-transparent outline-none text-sm text-gray-500"
                 />
               </div>
               <div className="ml-4">

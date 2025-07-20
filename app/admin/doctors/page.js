@@ -518,7 +518,7 @@ export default function DoctorsManagement() {
                   id="search"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3570ff] focus:border-transparent outline-none"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3570ff] focus:border-transparent outline-none text-sm text-gray-500"
                   placeholder="Search by name, email, or specialization..."
                 />
                 <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
@@ -538,7 +538,7 @@ export default function DoctorsManagement() {
                 id="filterSpecialization"
                 value={filterSpecialization}
                 onChange={(e) => setFilterSpecialization(e.target.value)}
-                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3570ff] focus:border-transparent outline-none"
+                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3570ff] focus:border-transparent outline-none text-sm text-gray-500"
               >
                 <option value="all">All Specializations</option>
                 {specializations.map(spec => (
@@ -556,7 +556,7 @@ export default function DoctorsManagement() {
                 id="filterStatus"
                 value={filterStatus}
                 onChange={(e) => setFilterStatus(e.target.value)}
-                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3570ff] focus:border-transparent outline-none"
+                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3570ff] focus:border-transparent outline-none text-sm text-gray-500"
               >
                 <option value="all">All Status</option>
                 <option value="verified">Verified</option>
