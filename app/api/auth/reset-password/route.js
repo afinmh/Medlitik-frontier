@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
-import { query } from '@/database/config/database';
+import { query } from '@/database/config/connection';
 
 export async function POST(request) {
   try {
@@ -24,9 +24,9 @@ export async function POST(request) {
 
     // Cari user dengan reset token yang valid
     const userResult = await query(
-      `SELECT id, email, first_name, reset_token_expiry 
+      `SELECT id, email, first_name, reset_password_expires 
        FROM users 
-       WHERE reset_token = $1 AND reset_token_expiry > NOW()`,
+       WHERE reset_password_token = $1 AND reset_password_expires > NOW()`,
       [token]
     );
 
@@ -46,7 +46,7 @@ export async function POST(request) {
     // Update password dan hapus reset token
     await query(
       `UPDATE users 
-       SET password_hash = $1, reset_token = NULL, reset_token_expiry = NULL, updated_at = NOW()
+       SET password_hash = $1, reset_password_token = NULL, reset_password_expires = NULL, updated_at = NOW()
        WHERE id = $2`,
       [passwordHash, user.id]
     );

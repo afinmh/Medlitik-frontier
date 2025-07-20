@@ -17,9 +17,11 @@ import {
   PlusIcon,
   ChevronRightIcon
 } from '@heroicons/react/24/outline';
+import { useSession } from 'next-auth/react';
 
 export default function UserDashboard() {
   const router = useRouter();
+  const { data: session, status } = useSession();
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [showNotifications, setShowNotifications] = useState(false);
@@ -29,13 +31,26 @@ export default function UserDashboard() {
   const [searchQuery, setSearchQuery] = useState('');
   
   useEffect(() => {
-    // Get user data from localStorage
+    // Jika session NextAuth tersedia (login Google), pakai session
+    if (session && session.user) {
+      setUser({
+        firstName: session.user.first_name || session.user.name?.split(' ')[0] || '',
+        lastName: session.user.last_name || session.user.name?.split(' ').slice(1).join(' ') || '',
+        email: session.user.email,
+        role: session.user.role,
+        id: session.user.id,
+        image: session.user.image
+      });
+      setIsLoading(false);
+      return;
+    }
+    // Jika tidak ada session, fallback ke localStorage (login manual)
     const userData = localStorage.getItem('user');
     if (userData) {
       setUser(JSON.parse(userData));
     }
     setIsLoading(false);
-  }, []);
+  }, [session]);
 
   const handleLogout = async () => {
     try {
