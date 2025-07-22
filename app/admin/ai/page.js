@@ -267,7 +267,7 @@ export default function AIMonitoring() {
 
             {/* Navigation */}
             <nav className="hidden md:flex space-x-8">
-              <Link href="/admin" className="text-gray-600 hover:text-[#3570ff]">Dashboard</Link>
+              <Link href="/admin/dashboard" className="text-gray-600 hover:text-[#3570ff]">Dashboard</Link>
               <Link href="/admin/users" className="text-gray-600 hover:text-[#3570ff]">Users</Link>
               <Link href="/admin/doctors" className="text-gray-600 hover:text-[#3570ff]">Doctors</Link>
               <Link href="/admin/consultations" className="text-gray-600 hover:text-[#3570ff]">Consultations</Link>

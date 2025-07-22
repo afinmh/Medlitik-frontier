@@ -182,7 +182,7 @@ export default function DoctorsManagement() {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center">
-              <Link href="/admin" className="flex items-center">
+              <Link href="/admin/dahsboard" className="flex items-center">
                 <Image
                   src="https://placeholder.pics/svg/40x40/3570ff/000000/Logo"
                   alt="Logo Medlitik"
@@ -197,10 +197,11 @@ export default function DoctorsManagement() {
 
             {/* Navigation */}
             <nav className="hidden md:flex space-x-8">
-              <Link href="/admin" className="text-gray-600 hover:text-[#3570ff]">Dashboard</Link>
+              <Link href="/admin/dashboard" className="text-gray-600 hover:text-[#3570ff]">Dashboard</Link>
               <Link href="/admin/users" className="text-gray-600 hover:text-[#3570ff]">Users</Link>
               <Link href="/admin/doctors" className="text-[#3570ff] font-medium">Doctors</Link>
               <Link href="/admin/consultations" className="text-gray-600 hover:text-[#3570ff]">Consultations</Link>
+              <Link href="/admin/ai" className="text-gray-600 hover:text-[#3570ff]">AI Monitoring</Link>
               <Link href="/admin/reports" className="text-gray-600 hover:text-[#3570ff]">Reports</Link>
             </nav>
 

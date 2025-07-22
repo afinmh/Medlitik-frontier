@@ -70,7 +70,7 @@ export async function POST(request) {
     // Insert user ke database
     const insertResult = await query(
       `INSERT INTO users (
-        first_name, last_name, email, password_hash, phone, 
+        first_name, last_name, email, password, phone, 
         role, created_at, updated_at
       ) VALUES ($1, $2, $3, $4, $5, $6, NOW(), NOW()) 
       RETURNING id, email, first_name, last_name, phone, role, created_at`,

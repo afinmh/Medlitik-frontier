@@ -30,8 +30,8 @@ export default function LoginPage() {
   useEffect(() => {
     console.log('Session:', session, 'Status:', status);
     if (status === "authenticated" && session?.user?.role) {
-      const targetUrl = session.user.role === 'admin' ? '/admin' : 
-                       session.user.role === 'doctor' ? '/doctor' : '/user';
+      const targetUrl = session.user.role === 'admin' ? '/admin/dashboard' : 
+                       session.user.role === 'doctor' ? '/doctor/dashboard' : '/user/dashboard';
       console.log('Redirecting to:', targetUrl);
       router.push(targetUrl);
     }
@@ -82,8 +82,8 @@ export default function LoginPage() {
           confirmButtonText: 'OK',
         });
         // Redirect
-        const targetUrl = data.user.role === 'admin' ? '/admin' : 
-                         data.user.role === 'doctor' ? '/doctor' : '/user';
+        const targetUrl = data.user.role === 'admin' ? '/admin/dashboard' : 
+                         data.user.role === 'doctor' ? '/doctor/dashboard' : '/user/dashboard';
         router.push(targetUrl);
       } else {
         // SweetAlert error

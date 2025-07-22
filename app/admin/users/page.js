@@ -150,7 +150,7 @@ export default function UsersManagement() {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center">
-              <Link href="/admin" className="flex items-center">
+              <Link href="/admin/dashboard" className="flex items-center">
                 <Image
                   src="https://placeholder.pics/svg/40x40/3570ff/000000/Logo"
                   alt="Logo Medlitik"
@@ -165,10 +165,11 @@ export default function UsersManagement() {
 
             {/* Navigation */}
             <nav className="hidden md:flex space-x-8">
-              <Link href="/admin" className="text-gray-600 hover:text-[#3570ff]">Dashboard</Link>
+              <Link href="/admin/dashboard" className="text-gray-600 hover:text-[#3570ff]">Dashboard</Link>
               <Link href="/admin/users" className="text-[#3570ff] font-medium">Users</Link>
               <Link href="/admin/doctors" className="text-gray-600 hover:text-[#3570ff]">Doctors</Link>
               <Link href="/admin/consultations" className="text-gray-600 hover:text-[#3570ff]">Consultations</Link>
+              <Link href="/admin/ai" className="text-gray-600 hover:text-[#3570ff]">AI Monitoring</Link>
               <Link href="/admin/reports" className="text-gray-600 hover:text-[#3570ff]">Reports</Link>
             </nav>
 

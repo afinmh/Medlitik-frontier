@@ -37,7 +37,7 @@ async function setupDatabase() {
       CREATE TABLE IF NOT EXISTS users (
         id BIGSERIAL PRIMARY KEY,
         email VARCHAR(255) NOT NULL UNIQUE,
-        password_hash VARCHAR(255) NOT NULL,
+        password VARCHAR(255) NOT NULL,
         first_name VARCHAR(100) NOT NULL,
         last_name VARCHAR(100) NOT NULL,
         phone VARCHAR(20),
@@ -157,7 +157,7 @@ async function setupDatabase() {
     
     await query(`
       INSERT INTO users (
-        email, password_hash, first_name, last_name, role, is_verified
+        email, password, first_name, last_name, role, is_verified
       ) VALUES (
         'admin@medlitik.com', $1, 'Admin', 'Medlitik', 'admin', true
       ) ON CONFLICT (email) DO NOTHING;
