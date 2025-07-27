@@ -30,7 +30,7 @@ export async function POST(request) {
     const user = userResult.rows[0];
 
     // Verifikasi password
-    const isPasswordValid = await bcrypt.compare(password, user.password);
+    const isPasswordValid = await bcrypt.compare(password, user.password_hash);
 
     if (!isPasswordValid) {
       return NextResponse.json(

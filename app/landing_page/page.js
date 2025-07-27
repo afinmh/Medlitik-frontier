@@ -5,7 +5,6 @@ import HeroSection from "../../components/landing_page/HeroSection";
 import FeaturesSection from "../../components/landing_page/FeaturesSection";
 import ServicesSection from "../../components/landing_page/ServicesSection";
 import AboutSection from "../../components/landing_page/AboutSection";
-import ContactSection from "../../components/landing_page/ContactSection";
 import Footer from "../../components/landing_page/Footer";
 
 export default function Home() {
@@ -16,7 +15,6 @@ export default function Home() {
       <FeaturesSection />
       <ServicesSection />
       <AboutSection />
-      <ContactSection />
       <Footer />
     </div>
   );

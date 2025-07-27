@@ -46,7 +46,7 @@ export async function POST(request) {
     // Update password dan hapus reset token
     await query(
       `UPDATE users 
-       SET password = $1, reset_password_token = NULL, reset_password_expires = NULL, updated_at = NOW()
+       SET password_hash = $1, reset_password_token = NULL, reset_password_expires = NULL, updated_at = NOW()
        WHERE id = $2`,
       [passwordHash, user.id]
     );
