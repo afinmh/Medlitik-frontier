@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
+import Navbar from "@/components/landing_page/Navbar";
+import Footer from "@/components/landing_page/Footer";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function DoktorPage() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -96,7 +98,7 @@ export default function DoktorPage() {
         availableHours: "09:00 - 14:00",
         price: "Rp 150.000",
         about: "Dr. Sarah Wijaya adalah seorang dokter umum dengan pengalaman 8 tahun dalam praktik kesehatan umum. Beliau berspesialisasi dalam perawatan preventif dan pengelolaan penyakit kronis.",
-        image: "https://placeholder.pics/svg/300/3570ff/FFFFFF/doctor-1",
+        image: "/female.png",
         isOnline: true,
         languages: ["Indonesia", "Inggris"],
         treatments: ["Konsultasi Umum", "Cek Kesehatan Rutin", "Vaksinasi"],
@@ -115,7 +117,7 @@ export default function DoktorPage() {
         availableHours: "10:00 - 16:00",
         price: "Rp 200.000",
         about: "Dr. Ahmad Ridwan adalah spesialis anak berpengalaman dengan keahlian dalam perkembangan anak dan perawatan kesehatan pediatrik.",
-        image: "https://placeholder.pics/svg/300/3570ff/FFFFFF/doctor-2",
+        image: "/male.png",
         isOnline: true,
         languages: ["Indonesia", "Inggris", "Arab"],
         treatments: ["Pemeriksaan Tumbuh Kembang Anak", "Imunisasi", "Konsultasi Nutrisi Anak"],
@@ -134,7 +136,7 @@ export default function DoktorPage() {
         availableHours: "13:00 - 18:00",
         price: "Rp 250.000",
         about: "Dr. Maya Sari adalah spesialis kulit dengan fokus pada dermatologi kosmetik dan pengobatan kondisi kulit kronis.",
-        image: "https://placeholder.pics/svg/300/3570ff/FFFFFF/doctor-3",
+        image: "/female.png",
         isOnline: false,
         languages: ["Indonesia", "Inggris"],
         treatments: ["Perawatan Kulit", "Konsultasi Dermatologi", "Prosedur Kosmetik"],
@@ -153,7 +155,7 @@ export default function DoktorPage() {
         availableHours: "09:00 - 15:00",
         price: "Rp 250.000",
         about: "Dr. Budi Santoso adalah spesialis penyakit dalam dengan pengalaman luas dalam mengelola kondisi metabolik dan penyakit kronis.",
-        image: "https://placeholder.pics/svg/300/3570ff/FFFFFF/doctor-4",
+        image: "/male.png",
         isOnline: true,
         languages: ["Indonesia", "Inggris", "Mandarin"],
         treatments: ["Pemeriksaan Kesehatan Menyeluruh", "Manajemen Penyakit Kronis", "Konsultasi Gaya Hidup"],
@@ -172,7 +174,7 @@ export default function DoktorPage() {
         availableHours: "11:00 - 19:00",
         price: "Rp 300.000",
         about: "Dr. Lisa Chen adalah psikolog klinis dengan keahlian dalam terapi kognitif perilaku dan manajemen stres.",
-        image: "https://placeholder.pics/svg/300/3570ff/FFFFFF/doctor-5",
+        image: "/female.png",
         isOnline: true,
         languages: ["Indonesia", "Inggris", "Mandarin"],
         treatments: ["Terapi Individu", "Konseling Pernikahan", "Manajemen Stres"],
@@ -191,7 +193,7 @@ export default function DoktorPage() {
         availableHours: "08:00 - 13:00",
         price: "Rp 200.000",
         about: "Dr. Rudi Hartono adalah spesialis mata dengan keahlian dalam penanganan berbagai gangguan penglihatan dan penyakit mata.",
-        image: "https://placeholder.pics/svg/300/3570ff/FFFFFF/doctor-6",
+        image: "/male.png",
         isOnline: false,
         languages: ["Indonesia", "Inggris"],
         treatments: ["Pemeriksaan Mata Komprehensif", "Perawatan Katarak", "Terapi Glaukoma"],
@@ -210,7 +212,7 @@ export default function DoktorPage() {
         availableHours: "10:00 - 17:00",
         price: "Rp 175.000",
         about: "Dr. Dewi Permata adalah dokter gigi dengan spesialisasi dalam kedokteran gigi estetik dan restorasi.",
-        image: "https://placeholder.pics/svg/300/3570ff/FFFFFF/doctor-7",
+        image: "/female.png",
         isOnline: true,
         languages: ["Indonesia", "Inggris"],
         treatments: ["Pemeriksaan Gigi Rutin", "Perawatan Saluran Akar", "Kosmetik Gigi"],
@@ -229,7 +231,7 @@ export default function DoktorPage() {
         availableHours: "09:00 - 15:00",
         price: "Rp 350.000",
         about: "Dr. Hendra Wijaya adalah spesialis jantung dengan pengalaman luas dalam pengelolaan penyakit kardiovaskular.",
-        image: "https://placeholder.pics/svg/300/3570ff/FFFFFF/doctor-8",
+        image: "/male.png",
         isOnline: true,
         languages: ["Indonesia", "Inggris"],
         treatments: ["Pemeriksaan Jantung", "Ekokardiografi", "Manajemen Penyakit Jantung"],
@@ -323,77 +325,24 @@ export default function DoktorPage() {
       animate="visible"
       variants={pageTransition}
     >
-      {/* Header */}
-      <header className="bg-white shadow-md py-6 sticky top-0 z-40">
-        <div className="max-w-6xl mx-auto px-4 flex justify-between items-center">
-          <Link href="/landing_page">
-            <div className="flex items-center space-x-3 cursor-pointer">
-              <Image
-                src="https://placeholder.pics/svg/40x40/3570ff/000000/Logo"
-                alt="Logo Medlitik"
-                width={40}
-                height={40}
-              />
-              <span className="text-2xl font-bold text-[#1a2a3a]">Medlitik</span>
-            </div>
-          </Link>
-          <nav className="hidden md:flex items-center space-x-8">
-            {[
-              { label: "Beranda", href: "/landing_page" },
-              { label: "Dokter", href: "/landing_page/dokter" },
-              { label: "Tentang", href: "/landing_page/tentang" },
-              { label: "Kontak", href: "/landing_page/kontak" },
-            ].map((item, i) => (
-              <Link
-                key={i}
-                href={item.href}
-                className={`font-medium ${
-                  item.label === "Dokter" 
-                    ? "text-[#3570ff]" 
-                    : "text-gray-700 hover:text-[#3570ff]"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link
-              href="/auth/login"
-              className="text-[#3570ff] hover:text-[#2856b6] font-medium px-4 py-2 rounded-full border border-[#3570ff] hover:bg-[#f0f8ff] transition"
-            >
-              Masuk
-            </Link>
-            <Link
-              href="/auth/register"
-              className="bg-[#3570ff] text-white px-6 py-2 rounded-full hover:bg-[#2856b6] transition font-medium shadow-md flex items-center justify-center"
-            >
-              Daftar
-            </Link>
-          </nav>
-          <div className="md:hidden">
-            <svg className="w-6 h-6 text-[#3570ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
-          </div>
-        </div>
-      </header>
+      {/* Navbar */}
+      <Navbar />
 
       {/* Hero Section */}
-      <section className="relative w-full bg-[#3570ff] py-20 overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20">
-          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-            <defs>
-              <pattern id="dotPattern" width="20" height="20" patternUnits="userSpaceOnUse">
-                <circle cx="10" cy="10" r="2" fill="white" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#dotPattern)" />
-          </svg>
-        </div>
-        
-        <div className="max-w-6xl mx-auto px-4 relative z-10">
-          <div className="text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Tim Dokter Ahli Kami</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+      <section
+        className="relative w-full bg-[#3570ff] pt-32 md:pt-36 pb-20 overflow-hidden"
+        style={{
+          backgroundImage: "url('/doctors.jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        <div className="absolute inset-0 z-0"></div>
+        <div className="relative z-10 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+          <div className="text-left text-white">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Jajaran Dokter Ahli Kami</h1>
+            <p className="text-xl text-blue-100 max-w-2xl">
               Temukan dokter terbaik yang sesuai dengan kebutuhan kesehatan Anda dari berbagai spesialisasi medis yang tersedia
             </p>
           </div>
@@ -413,7 +362,7 @@ export default function DoktorPage() {
                   type="text"
                   id="search"
                   placeholder="Cari berdasarkan nama atau spesialisasi"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#3570ff] focus:border-[#3570ff] pl-10"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#3570ff] focus:border-[#3570ff] pl-10 text-black"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -440,7 +389,7 @@ export default function DoktorPage() {
               </label>
               <select
                 id="specialty"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#3570ff] focus:border-[#3570ff]"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#3570ff] focus:border-[#3570ff] text-black"
                 value={selectedSpecialty}
                 onChange={(e) => setSelectedSpecialty(e.target.value)}
               >
@@ -458,7 +407,7 @@ export default function DoktorPage() {
               </label>
               <select
                 id="rating"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#3570ff] focus:border-[#3570ff]"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#3570ff] focus:border-[#3570ff] text-black"
                 value={selectedRating}
                 onChange={(e) => setSelectedRating(e.target.value)}
               >
@@ -476,7 +425,7 @@ export default function DoktorPage() {
               </label>
               <select
                 id="experience"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#3570ff] focus:border-[#3570ff]"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#3570ff] focus:border-[#3570ff] text-black"
                 value={selectedExperience}
                 onChange={(e) => setSelectedExperience(e.target.value)}
               >
@@ -537,60 +486,48 @@ export default function DoktorPage() {
               <motion.div
                 key={doctor.id}
                 variants={itemFadeIn}
-                className={`bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow ${
+                className={`bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 transform hover:scale-[1.03] hover:shadow-xl hover:border-[#3570ff]/30 bg-gradient-to-br from-white via-[#f7faff] to-[#eaf3ff] ${
                   currentView === "list" ? "flex" : "block"
                 }`}
               >
                 {currentView === "grid" ? (
                   <>
-                    <div className="relative h-48 bg-blue-50">
-                      <Image
-                        src={doctor.image}
-                        alt={doctor.name}
-                        className="object-cover object-center"
-                        fill
-                      />
-                      {doctor.isOnline && (
-                        <div className="absolute top-4 right-4 bg-green-500 text-white text-xs px-2 py-1 rounded-full">
-                          Online
-                        </div>
-                      )}
-                    </div>
-                    <div className="p-5">
-                      <div className="flex justify-between">
-                        <h3 className="text-lg font-semibold text-[#1a2a3a] mb-1">{doctor.name}</h3>
-                        <span className="text-[#3570ff] font-semibold">{doctor.price}</span>
+                    <div className="flex flex-col items-center pt-7 pb-2 px-6">
+                      <div className="relative w-28 h-28 mb-3">
+                        <Image
+                          src={doctor.image}
+                          alt={doctor.name}
+                          className="object-cover object-center rounded-full border-4 border-white shadow-md"
+                          fill
+                        />
+                        {doctor.isOnline && (
+                          <span className="absolute bottom-2 right-2 w-4 h-4 bg-green-500 border-2 border-white rounded-full shadow"></span>
+                        )}
                       </div>
-                      <p className="text-[#3570ff] font-medium text-sm mb-2">
-                        {doctor.specialty}
-                      </p>
-                      <div className="flex items-center mb-3">
+                      <h3 className="text-lg font-semibold text-[#1a2a3a] mb-1 text-center">{doctor.name}</h3>
+                      <span className="text-[#3570ff] font-semibold text-base mb-1">{doctor.price}</span>
+                      <span className="text-[#3570ff] font-medium text-xs mb-2 bg-[#eaf3ff] px-2 py-0.5 rounded-full">{doctor.specialty}</span>
+                      <div className="flex items-center justify-center mb-2">
                         {renderStars(doctor.rating)}
-                        <span className="ml-1 text-xs text-gray-500">
-                          ({doctor.reviews} reviews)
-                        </span>
+                        <span className="ml-1 text-xs text-gray-400">({doctor.reviews})</span>
                       </div>
-                      <div className="flex items-center text-sm text-gray-600 mb-3">
-                        <svg className="w-4 h-4 mr-1 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <div className="flex items-center justify-center text-xs text-gray-500 mb-1 gap-2">
+                        <svg className="w-4 h-4 mr-1 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        <span>{doctor.experience} pengalaman</span>
-                      </div>
-                      <div className="flex items-center text-sm text-gray-600 mb-4">
-                        <svg className="w-4 h-4 mr-1 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <span>{doctor.experience}</span>
+                        <svg className="w-4 h-4 ml-3 mr-1 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                         <span className="truncate">{doctor.location}</span>
                       </div>
-                      <div className="border-t border-gray-100 pt-4 mt-2">
-                        <Link
-                          href={`/landing_page/dokter/${doctor.id}`}
-                          className="block text-center bg-[#3570ff] text-white py-2 px-4 rounded-lg hover:bg-[#2856b6] transition"
-                        >
-                          Lihat Profil & Jadwal
-                        </Link>
-                      </div>
+                      <Link
+                        href={`/landing_page/dokter/${doctor.id}`}
+                        className="mt-4 w-full text-center bg-[#3570ff] text-white py-2 px-4 rounded-lg hover:bg-[#2856b6] transition font-semibold text-sm shadow-sm"
+                      >
+                        Lihat Profil & Jadwal
+                      </Link>
                     </div>
                   </>
                 ) : (
@@ -680,73 +617,76 @@ export default function DoktorPage() {
       </section>
 
       {/* Consult CTA Section */}
-      <section className="bg-gradient-to-r from-[#3570ff] to-[#6ad7e5] py-16 mt-12">
-        <div className="max-w-6xl mx-auto px-4 text-center text-white">
-          <h2 className="text-3xl font-bold mb-4">
-            Konsultasikan Kesehatan Anda dengan Dokter Ahli
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-            Dapatkan saran medis terbaik dari dokter spesialis berpengalaman
-            untuk menjaga kesehatan Anda dan keluarga
-          </p>
-          <Link
-            href="/auth/register"
-            className="inline-block bg-white text-[#3570ff] px-8 py-3 rounded-full font-bold hover:bg-blue-50 transition shadow-lg"
-          >
-            Daftar Sekarang
-          </Link>
+      <section className="relative py-10 md:py-14 flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#3570ff] via-[#6ad7e5]/60 to-[#eaf3ff]">
+        <div className="absolute inset-0 bg-[url('/health.svg')] bg-no-repeat bg-right-bottom opacity-10 pointer-events-none"></div>
+        <div className="relative z-10 max-w-6xl w-full mx-auto px-4 md:px-8">
+<div className="rounded-3xl shadow-2xl bg-white/80 border border-white/60 backdrop-blur-xl flex flex-col md:flex-row items-center md:items-start gap-8 p-6 md:p-8">
+  <div className="flex-shrink-0 flex flex-col items-start w-full md:w-1/3 md:pl-4">
+    <div className="mb-4 flex items-center justify-center w-16 h-16 rounded-full bg-[#3570ff]/10 border-2 border-[#3570ff]/20 shadow-lg">
+      <svg className="w-10 h-10 text-[#3570ff]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    </div>
+    <h2 className="text-2xl md:text-3xl font-bold text-[#1a2a3a] mb-2 text-left">Konsultasi Kesehatan Mudah & Aman</h2>
+    <p className="text-base md:text-lg text-[#3570ff] mb-3 text-left">Dapatkan solusi kesehatan dari dokter ahli tanpa antri dan tanpa ribet.</p>
+    <Link
+      href="/auth/register"
+      className="inline-block bg-[#3570ff] text-white px-7 py-2.5 rounded-full font-bold hover:bg-[#2856b6] transition shadow-lg tracking-wide text-lg mt-1"
+    >
+      Daftar Sekarang
+    </Link>
+  </div>
+            <div className="flex-1 flex flex-col gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="group bg-white/90 rounded-xl p-5 shadow border border-[#eaf3ff] flex flex-col items-center md:items-start relative overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-[#3570ff]/40 hover:bg-white/100">
+                  <span className="absolute -top-4 -right-4 w-16 h-16 bg-[#3570ff]/10 rounded-full blur-xl opacity-60 group-hover:scale-125 group-hover:opacity-80 transition-all duration-300"></span>
+                  <span className="inline-block mb-2 text-[#3570ff] z-10">
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                  </span>
+                  <h3 className="font-semibold text-[#1a2a3a] mb-1 z-10">Dokter Berpengalaman</h3>
+                  <p className="text-sm text-gray-600 z-10">Semua dokter telah terverifikasi dan berpengalaman di bidangnya.</p>
+                  <span className="absolute left-2 bottom-2 w-4 h-4 bg-[#6ad7e5]/30 rounded-full blur-sm group-hover:scale-125 transition-all duration-300"></span>
+                </div>
+                <div className="group bg-white/90 rounded-xl p-5 shadow border border-[#eaf3ff] flex flex-col items-center md:items-start relative overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-[#3570ff]/40 hover:bg-white/100">
+                  <span className="absolute -bottom-4 -left-4 w-16 h-16 bg-[#6ad7e5]/20 rounded-full blur-xl opacity-60 group-hover:scale-125 group-hover:opacity-80 transition-all duration-300"></span>
+                  <span className="inline-block mb-2 text-[#3570ff] z-10">
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V4a2 2 0 10-4 0v1.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+                  </span>
+                  <h3 className="font-semibold text-[#1a2a3a] mb-1 z-10">Privasi & Data Aman</h3>
+                  <p className="text-sm text-gray-600 z-10">Konsultasi Anda bersifat rahasia dan data dijaga dengan enkripsi.</p>
+                  <span className="absolute right-2 top-2 w-4 h-4 bg-[#3570ff]/20 rounded-full blur-sm group-hover:scale-125 transition-all duration-300"></span>
+                </div>
+                <div className="group bg-white/90 rounded-xl p-5 shadow border border-[#eaf3ff] flex flex-col items-center md:items-start relative overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-[#3570ff]/40 hover:bg-white/100">
+                  <span className="absolute -top-4 -left-4 w-16 h-16 bg-[#3570ff]/10 rounded-full blur-xl opacity-60 group-hover:scale-125 group-hover:opacity-80 transition-all duration-300"></span>
+                  <span className="inline-block mb-2 text-[#3570ff] z-10">
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zm0 0V4m0 10v6m8-8h-6m-4 0H4" /></svg>
+                  </span>
+                  <h3 className="font-semibold text-[#1a2a3a] mb-1 z-10">Akses Mudah 24/7</h3>
+                  <p className="text-sm text-gray-600 z-10">Konsultasi bisa dilakukan kapan saja, di mana saja melalui platform kami.</p>
+                  <span className="absolute right-2 bottom-2 w-4 h-4 bg-[#6ad7e5]/30 rounded-full blur-sm group-hover:scale-125 transition-all duration-300"></span>
+                </div>
+                <div className="group bg-white/90 rounded-xl p-5 shadow border border-[#eaf3ff] flex flex-col items-center md:items-start relative overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-[#3570ff]/40 hover:bg-white/100">
+                  <span className="absolute -bottom-4 -right-4 w-16 h-16 bg-[#3570ff]/10 rounded-full blur-xl opacity-60 group-hover:scale-125 group-hover:opacity-80 transition-all duration-300"></span>
+                  <span className="inline-block mb-2 text-[#3570ff] z-10">
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 17v-2a4 4 0 018 0v2m-4-4v.01" /></svg>
+                  </span>
+                  <h3 className="font-semibold text-[#1a2a3a] mb-1 z-10">Langkah Mudah</h3>
+                  <ul className="text-sm text-gray-600 list-decimal list-inside mt-1 z-10">
+                    <li>Daftar akun gratis</li>
+                    <li>Pilih dokter sesuai kebutuhan</li>
+                    <li>Mulai konsultasi online</li>
+                  </ul>
+                  <span className="absolute left-2 top-2 w-4 h-4 bg-[#6ad7e5]/30 rounded-full blur-sm group-hover:scale-125 transition-all duration-300"></span>
+                </div>
+              </div>
+              <div className="mt-4 text-center text-xs text-gray-500">*Konsultasi dengan dokter Medlitik dijamin aman, nyaman, dan terpercaya.</div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#1a2a3a] text-white py-12 px-4">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div>
-            <h4 className="font-extrabold text-2xl mb-4 text-[#6ad7e5]">Medlitik</h4>
-            <p className="text-sm text-white/70 leading-relaxed">
-              Mitra tepercaya Anda dalam keunggulan layanan kesehatan, berkomitmen memberikan layanan medis terbaik.
-            </p>
-          </div>
-          <div>
-            <h5 className="font-bold text-lg mb-4 text-[#6ad7e5]">Layanan</h5>
-            <ul className="space-y-2 text-sm text-white/70">
-              <li>Vaksinasi</li>
-              <li>Darurat</li>
-              <li>Pusat Medis</li>
-              <li>Dokter Spesialis</li>
-              <li>Konsultasi Online</li>
-            </ul>
-          </div>
-          <div>
-            <h5 className="font-bold text-lg mb-4 text-[#6ad7e5]">Kontak</h5>
-            <ul className="space-y-2 text-sm text-white/70">
-              <li>Telepon: (123) 456-7890</li>
-              <li>Email: info@medlitik.com</li>
-              <li>Alamat: Jl. Kesehatan 123, Kota Medis, 12345</li>
-            </ul>
-          </div>
-          <div>
-            <h5 className="font-bold text-lg mb-4 text-[#6ad7e5]">Ikuti Kami</h5>
-            <div className="flex gap-4 text-white/70">
-              <a href="#" className="hover:text-[#6ad7e5] transition">
-                FB
-              </a>
-              <a href="#" className="hover:text-[#6ad7e5] transition">
-                TW
-              </a>
-              <a href="#" className="hover:text-[#6ad7e5] transition">
-                IG
-              </a>
-              <a href="#" className="hover:text-[#6ad7e5] transition">
-                LI
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="text-center text-xs text-white/50 mt-12 pt-6 border-t border-white/10">
-          © 2025 Medlitik. Seluruh hak cipta dilindungi.
-        </div>
-      </footer>
+        <Footer />
     </motion.div>
   );
 }

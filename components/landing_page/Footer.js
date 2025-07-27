@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-[#1a2a3a] text-white py-14 px-4 mt-16 border-t border-white/10 relative overflow-hidden">
+    <footer className="bg-[#1a2a3a] text-white py-8 px-4 mt-0 border-t border-white/10 relative overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 items-start relative z-10">
         {/* Brand & Description */}
         <div>
@@ -68,7 +68,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="text-center text-base text-white/50 mt-12 pt-6 border-t border-white/10">
+      <div className="text-center text-base text-white/50 mt-4 pt-3 border-t border-white/10">
         © {new Date().getFullYear()} Medlitik. Seluruh hak cipta dilindungi.
       </div>
     </footer>
