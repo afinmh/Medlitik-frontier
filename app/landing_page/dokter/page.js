@@ -618,7 +618,7 @@ export default function DoktorPage() {
 
       {/* Consult CTA Section */}
       <section className="relative py-10 md:py-14 flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#3570ff] via-[#6ad7e5]/60 to-[#eaf3ff]">
-        <div className="absolute inset-0 bg-[url('/health.svg')] bg-no-repeat bg-right-bottom opacity-10 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[url('/rehab.svg')] bg-no-repeat bg-right-bottom opacity-10 pointer-events-none"></div>
         <div className="relative z-10 max-w-6xl w-full mx-auto px-4 md:px-8">
 <div className="rounded-3xl shadow-2xl bg-white/80 border border-white/60 backdrop-blur-xl flex flex-col md:flex-row items-center md:items-start gap-8 p-6 md:p-8">
   <div className="flex-shrink-0 flex flex-col items-start w-full md:w-1/3 md:pl-4">
