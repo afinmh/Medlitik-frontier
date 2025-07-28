@@ -30,7 +30,7 @@ export default function StorySection({ staggerContainer, itemFadeIn }) {
           <motion.div variants={itemFadeIn} className="order-1 md:order-2 flex justify-center">
             <div className="relative w-full max-w-md aspect-[5/6] mx-auto group">
               <Image
-                src="/story.jpg"
+                src="/tentang/story.jpg"
                 alt="Kisah Medlitik"
                 fill
                 className="object-cover rounded-2xl shadow-xl border border-blue-100 transition-transform duration-300 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-blue-200/60"

@@ -14,7 +14,7 @@ export default function VisionMissionSection({ staggerContainer, itemFadeIn }) {
         <motion.div variants={itemFadeIn} className="flex items-center justify-center">
           <div className="relative w-full h-[400px] md:h-[520px] rounded-2xl overflow-hidden shadow-xl">
             <Image
-              src="/visi.jpg"
+              src="/tentang/visi.jpg"
               alt="Visi Medlitik"
               fill
               style={{ objectFit: 'cover' }}

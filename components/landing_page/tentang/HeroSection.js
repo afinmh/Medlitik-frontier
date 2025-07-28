@@ -7,7 +7,7 @@ export default function HeroSection({ fadeIn }) {
     <section className="relative py-24">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/about.jpg"
+          src="/tentang/about.jpg"
           alt="About Hero Background"
           fill
           style={{ objectFit: 'cover' }}

@@ -47,32 +47,32 @@ export default function AboutPage() {
   // Values data
   const values = [
     {
-      icon: "/care.svg", // Care SVG
+      icon: "/tentang/care.svg", // Care SVG
       title: "Kepedulian",
       description: "Kami meletakkan kebutuhan pasien sebagai prioritas utama, memberikan perhatian dan empati dalam setiap layanan kesehatan."
     },
     {
-      icon: "/target.svg", // Target SVG
+      icon: "/tentang/target.svg", // Target SVG
       title: "Keunggulan",
       description: "Kami berkomitmen untuk menyediakan standar perawatan tertinggi melalui inovasi dan peningkatan berkelanjutan."
     },
     {
-      icon: "/integrity.svg", // Integrity SVG
+      icon: "/tentang/integrity.svg", // Integrity SVG
       title: "Integritas",
       description: "Kami menjalankan praktik dengan kejujuran, transparansi, dan etika yang kuat dalam semua aspek layanan kami."
     },
     {
-      icon: "/team.svg", // Team SVG
+      icon: "/tentang/team.svg", // Team SVG
       title: "Kolaborasi",
       description: "Kami percaya bahwa kerja sama tim adalah kunci untuk memberikan perawatan kesehatan yang komprehensif dan terpadu."
     },
     {
-      icon: "/access.svg", // Access SVG
+      icon: "/tentang/access.svg", // Access SVG
       title: "Aksesibilitas",
       description: "Kami berdedikasi untuk membuat layanan kesehatan berkualitas dapat diakses oleh semua orang, kapan pun dan di mana pun."
     },
     {
-      icon: "/idea.svg", // Idea SVG
+      icon: "/tentang/idea.svg", // Idea SVG
       title: "Inovasi",
       description: "Kami terus mengembangkan solusi kesehatan baru yang meningkatkan pengalaman pasien dan hasil perawatan."
     }
