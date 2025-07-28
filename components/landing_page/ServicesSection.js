@@ -20,28 +20,28 @@ const fadeUp = {
 
 const services = [
   {
-    icon: "/bot.svg",
+    icon: "/landing/bot.svg",
     title: "Konsultasi AI",
     desc: "Diagnosis awal dengan AI medical assistant yang akurat dan cepat 24/7",
     gradient: "from-blue-50 to-indigo-100",
     iconBg: "bg-gradient-to-r from-[#3570ff] to-[#4e7fff]"
   },
   {
-    icon: "/doctor.svg",
+    icon: "/landing/doctor.svg",
     title: "Dokter Spesialis",
     desc: "Jaringan dokter bersertifikat dari berbagai spesialisasi medis",
     gradient: "from-emerald-50 to-teal-100",
     iconBg: "bg-gradient-to-r from-[#00b894] to-[#00a085]"
   },
   {
-    icon: "/schedule.svg",
+    icon: "/landing/schedule.svg",
     title: "Jadwal Fleksibel",
     desc: "Booking appointment online dengan sistem manajemen waktu yang efisien",
     gradient: "from-orange-50 to-red-100",
     iconBg: "bg-gradient-to-r from-[#e17055] to-[#d63447]"
   },
   {
-    icon: "/shield.svg",
+    icon: "/landing/shield.svg",
     title: "Keamanan Data",
     desc: "Perlindungan data medis dengan enkripsi tingkat enterprise",
     gradient: "from-purple-50 to-violet-100",

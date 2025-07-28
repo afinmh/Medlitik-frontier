@@ -21,10 +21,10 @@ const slowSlideInUp = {
 
 export default function AboutSection() {
   const features = [
-    { icon: "/hospital.svg", title: "Rumah Sakit Partner", desc: "500+ rumah sakit terpercaya" },
-    { icon: "/fast.svg", title: "Response Time", desc: "< 2 menit rata-rata respon" },
-    { icon: "/clipboard.svg", title: "Rekam Medis", desc: "Terintegrasi dengan sistem hospital" },
-    { icon: "/area.svg", title: "Coverage Area", desc: "34 provinsi di Indonesia" },
+    { icon: "/landing/hospital.svg", title: "Rumah Sakit Partner", desc: "500+ rumah sakit terpercaya" },
+    { icon: "/landing/fast.svg", title: "Response Time", desc: "< 2 menit rata-rata respon" },
+    { icon: "/landing/clipboard.svg", title: "Rekam Medis", desc: "Terintegrasi dengan sistem hospital" },
+    { icon: "/landing/area.svg", title: "Coverage Area", desc: "34 provinsi di Indonesia" },
   ];
   return (
     <motion.section
@@ -103,7 +103,7 @@ export default function AboutSection() {
                   >
                     <div className="mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <Image
-                        src={doctor.gender === "female" ? "/female.png" : "/male.png"}
+                        src={doctor.gender === "female" ? "/landing/female.png" : "/landing/male.png"}
                         alt={doctor.name}
                         width={96}
                         height={96}

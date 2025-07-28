@@ -19,10 +19,10 @@ const slowSlideInRight = {
 };
 
 const featureIcons = [
-  { src: "/rehab.svg", alt: "Panduan Rehabilitasi" },
-  { src: "/buah.svg", alt: "Pola Hidup Sehat" },
-  { src: "/sign.svg", alt: "Warning Signs" },
-  { src: "/health.svg", alt: "Monitoring Progress" },
+  { src: "/landing/rehab.svg", alt: "Panduan Rehabilitasi" },
+  { src: "/landing/buah.svg", alt: "Pola Hidup Sehat" },
+  { src: "/landing/sign.svg", alt: "Warning Signs" },
+  { src: "/landing/health.svg", alt: "Monitoring Progress" },
 ];
 
 export default function FeaturesSection() {
@@ -92,13 +92,13 @@ export default function FeaturesSection() {
               <button
                 className="bg-gradient-to-r from-[#3570ff] to-[#6ad7e5] text-white px-5 py-2 md:px-7 md:py-3 rounded-full font-bold shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-200 flex items-center gap-2 text-base md:text-lg"
               >
-                <Image src="/bot.svg" alt="Bot" width={24} height={24} />
+                <Image src="/landing/bot.svg" alt="Bot" width={24} height={24} />
                 Mulai Program AI
               </button>
               <button
                 className="border-2 border-[#3570ff] text-[#3570ff] px-5 py-2 md:px-7 md:py-3 rounded-full font-semibold bg-white/70 hover:bg-[#e3f0ff] hover:text-[#2856b6] transition-all duration-200 flex items-center gap-2 text-base md:text-lg"
               >
-                <Image src="/demo.svg" alt="Demo" width={24} height={24} />
+                <Image src="/landing/demo.svg" alt="Demo" width={24} height={24} />
                 Lihat Demo
               </button>
             </div>
@@ -115,7 +115,7 @@ export default function FeaturesSection() {
               <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4 pb-2 md:pb-3 border-b border-[#e3f0ff]">
                 <div className="relative">
                   <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r from-[#3570ff] to-[#6ad7e5] rounded-xl flex items-center justify-center">
-                    <Image src="/bot.svg" alt="Bot" width={20} height={20} />
+                    <Image src="/landing/bot.svg" alt="Bot" width={20} height={20} />
                   </div>
                 </div>
                 <div>
