@@ -142,7 +142,7 @@ export default function ResetPasswordPage() {
       </div>
       {/* Right Side - Image/Illustration */}
       <div className="hidden lg:flex w-4/7 h-full relative overflow-hidden items-center justify-center bg-gradient-to-br from-[#3570ff] to-[#6ad7e5] p-0 m-0">
-        <Image src="/reset.jpg" alt="Forgot Illustration" className="object-cover w-full h-full" width={800} height={800} />
+        <Image src="/bg/reset.jpg" alt="Forgot Illustration" className="object-cover w-full h-full" width={800} height={800} />
       </div>
     </div>
   );

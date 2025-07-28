@@ -3,20 +3,7 @@ import Image from "next/image";
 
 export default function VisionMissionSection({ staggerContainer, itemFadeIn }) {
   return (
-    <section className="relative py-16 max-w-6xl mx-auto px-4 overflow-hidden">
-      {/* Medical-themed SVG decoration: stethoscope */}
-      <svg className="absolute -top-10 -left-10 w-[120px] h-[120px] md:w-[180px] md:h-[180px] opacity-40 z-0 pointer-events-none" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="60" cy="60" r="58" fill="#e6f0ff" />
-        <path d="M40 60c0 11 9 20 20 20s20-9 20-20V40" stroke="#3570ff" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-        <circle cx="40" cy="40" r="8" fill="#6ad7e5" stroke="#3570ff" strokeWidth="3"/>
-        <circle cx="80" cy="40" r="8" fill="#6ad7e5" stroke="#3570ff" strokeWidth="3"/>
-        <rect x="56" y="78" width="8" height="16" rx="4" fill="#3570ff" />
-      </svg>
-      <svg className="absolute bottom-4 right-4 w-[80px] h-[80px] md:w-[120px] md:h-[120px] opacity-30 z-0 pointer-events-none" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="20" y="20" width="80" height="80" rx="40" fill="#6ad7e5" />
-        <path d="M60 40v24" stroke="#3570ff" strokeWidth="4" strokeLinecap="round"/>
-        <circle cx="60" cy="72" r="6" fill="#fff" stroke="#3570ff" strokeWidth="2"/>
-      </svg>
+    <section className="py-16 max-w-6xl mx-auto px-4">
       <motion.div 
         className="relative grid grid-cols-1 md:grid-cols-2 gap-16 items-center z-10"
         initial="hidden"

@@ -349,7 +349,7 @@ export default function LoginPage() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
-        <img src="/login.jpg" alt="Login Illustration" className="object-cover w-full h-full" />
+        <img src="/bg/login.jpg" alt="Login Illustration" className="object-cover w-full h-full" />
       </motion.div>
     </div>
   );

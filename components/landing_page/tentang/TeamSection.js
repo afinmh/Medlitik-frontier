@@ -7,19 +7,19 @@ export default function TeamSection({ fadeIn, staggerContainer, itemFadeIn, team
     {
       name: "Rievan Averillio",
       role: "Chief Executive Officer",
-      photo: "/rievan1.png",
+      photo: "/team/rievan1.png",
       bio: "Visioner di bidang teknologi kesehatan dan berpengalaman di dalam bidang ekosistem digital."
     },
     {
       name: "Ayunda Rahma",
       role: "Chief Medical Officer",
-      photo: "/ayunda.jpg",
+      photo: "/team/ayunda.jpg",
       bio: "Dokter dan inovator layanan kesehatan digital, fokus pada pengembangan solusi medis berbasis teknologi."
     },
     {
       name: "Afin Maulana",
       role: "Chief Technology Officer",
-      photo: "/afin.jpg",
+      photo: "/team/afin.jpg",
       bio: "Pakar teknologi dan AI, memimpin pengembangan platform Medlitik demi layanan kesehatan yang lebih cerdas."
     }
   ];

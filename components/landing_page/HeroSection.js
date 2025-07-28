@@ -2,9 +2,9 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const bgImages = [
-  "/landing4.webp",
-  "/landing2.webp",
-  "/landing3.webp"
+  "/landing/landing4.webp",
+  "/landing/landing2.webp",
+  "/landing/landing3.webp"
 ];
 
 export default function HeroSection() {

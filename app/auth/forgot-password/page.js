@@ -231,7 +231,7 @@ export default function ForgotPasswordPage() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
-        <Image src="/forgot.jpg" alt="Forgot Illustration" className="object-cover w-full h-full" width={800} height={800} />
+        <Image src="/bg/forgot.jpg" alt="Forgot Illustration" className="object-cover w-full h-full" width={800} height={800} />
       </motion.div>
     </div>
   );

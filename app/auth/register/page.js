@@ -163,7 +163,7 @@ export default function RegisterPage() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
-        <img src="/register.jpg" alt="Register Illustration" className="object-cover w-full h-full" />
+        <img src="/bg/register.jpg" alt="Register Illustration" className="object-cover w-full h-full" />
       </motion.div>
 
       {/* Right Side - Register Form (scrollable) */}
